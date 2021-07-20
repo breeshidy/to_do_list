@@ -5,12 +5,19 @@ body{
 .Searchbox{
   text-align: center;
   margin-left: 35%;
+  border-style: solid;
+  border-color: rgb(52, 201, 221);
 }
 
 ul {
   text-align: left;
   margin-left: 400px;
-  margin-top: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+li {
+  padding: 15px 0px;
 }
 
 div {

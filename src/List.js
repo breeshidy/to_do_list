@@ -25,8 +25,8 @@ class List extends React.Component {
   };
   
   onSaveValue = (e) => {
-    e.preventDefault()
-    this.setState({ value: e.target.value });
+      e.preventDefault()
+      this.setState({ value: e.target.value });
   }
 
   addList = () => {

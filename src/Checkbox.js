@@ -3,19 +3,29 @@ import React from "react";
 class Checkbox extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { textDecoration: "none", checked: "" };
+    this.state = { textDecoration: "none", checked: "" , handlerFunction: this.checkOn};
   }
 
-  toggleCheck = () => {
+  checkOn = () => {
     // alert(this.props.sentence)
     this.setState({ textDecoration: "line-through" });
     // this.setState({checked:""})
+
+    this.setState({handlerFunction: this.checkOff});
+  };
+
+  checkOff = () => {
+    // alert(this.props.sentence)
+    this.setState({ textDecoration: "none" });
+    // this.setState({checked:""})
+
+    this.setState({handlerFunction: this.checkOn});
   };
 
   render() {
     return (
       <div>
-        <input type="checkbox" onClick={this.toggleCheck} />
+        <input type="checkbox" onClick={this.state.handlerFunction} />
         <label style={{ textDecoration: this.state.textDecoration }}>
           {" "}
           {this.props.sentence}
