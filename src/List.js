@@ -1,62 +1,57 @@
 import './list.css';
 import React from 'react'
+import Checkbox from './Checkbox.js'
 
-// class List extends React.Component {
-//   //------------------------------------------------------------
-//   // Move the checked stuff to a Checkbox class at some point!
-//   this.state = {
-//       isChecked: false,
-//     }
-//   }
-//   toggleChecked = () => {
-//     this.setState({ isChecked: !this.state.isChecked })
-//   }
-//   //------------------------------------------------------------
+class List extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {list: ['My First Todo', 'Another Todo What a Surprise!','Completed! Yay']}
+  }
 
-
-//   // createList() {
-//   //   const sentences = ['My First Todo', 'Another Todo What a Surprise!','Completed! Yay']; 
-//   //     const listItems = sentences.map((sentence,index) => (
-//   //       <li key={index}>
-//   //         <input type="checkbox" name="topping" />
-//   //         <label> {sentence}</label>
-//   //       </li>
-//   //     ));
-//   //     return listItems
-//   // }
-
-//   render() { 
-//     const sentences = ['My First Todo', 'Another Todo What a Surprise!','Completed! Yay']; 
-//     const listItems = sentences.map((sentence,index) => (
-//       <li key={index}>
-//         <input type="checkbox" name="topping" />
-//         <label> {sentence}</label>
-//       </li>
-//     ));
-    
-//     return (    
-//     <div className="List">
-//       <ul> listItems </ul>
-//     </div>)
-//   };
-// }
-
-
-
-function List() {
- const sentences = ['My First Todo', 'Another Todo What a Surprise!','Completed! Yay']; 
-  const listItems = sentences.map((sentence,index) => (
+  constructList = () => {
+    console.log(this.state.list)
+    console.log(this.state.list[0])
+    const newList = this.state.list.map((sentence,index) => (
     <li key={index}>
-      <input type="checkbox" name="topping" />
-      <label> {sentence}</label>
-    </li>
-  ));
-  return (
+      <Checkbox sentence={sentence}/>
+      {/* <input type="checkbox" name="topping"/>
+      <label> {sentence}</label> */}
+    </li>)
+    )
+    return newList
+  }
+
+  render(){
+    return(
     <div className="List">
-      <ul>{listItems}</ul>
+        <ul>
+        {this.constructList()}
+        </ul>
     </div>
-  );
+    )
+  }
+
+
 }
+
+
+
+
+
+// function List() {
+//  const sentences = ['My First Todo', 'Another Todo What a Surprise!','Completed! Yay']; 
+//   const listItems = sentences.map((sentence,index) => (
+//     <li key={index}>
+//       <input type="checkbox" name="topping" />
+//       <label> {sentence}</label>
+//     </li>
+//   ));
+//   return (
+//     <div className="List">
+//       <ul>{listItems}</ul>
+//     </div>
+//   );
+// }
 
 
 
